@@ -1,0 +1,8 @@
+{
+  "name": "ts-application-error",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "to-gth <to.code01.g@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

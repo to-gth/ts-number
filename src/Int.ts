@@ -1,6 +1,4 @@
-import ApplicationError from '../ApplicationError/ApplicationError'
-import IntRange from './IntRange'
-import NaturalInt from './NaturalInt'
+import ApplicationError from 'ts-applicatin-error'
 import { Brand } from 'ts-brand'
 
 type Int = Brand<number, 'Int'>
@@ -25,14 +23,14 @@ namespace Int {
 
 namespace Int {
 
-  export const clampedWithin = (range: IntRange<Int, NaturalInt>, i: Int): Int => {
+  // export const clampedWithin = (range: IntRange<Int, NaturalInt>, i: Int): Int => {
 
-    const { start } = range
-    if (i <= start) return Int.from(start)
-    const end = IntRange.endOf(range)
-    if (end <= i) return Int.from(end)
-    return i
-  }
+  //   const { start } = range
+  //   if (i <= start) return Int.from(start)
+  //   const end = IntRange.endOf(range)
+  //   if (end <= i) return Int.from(end)
+  //   return i
+  // }
 }
 
 namespace Int {
@@ -41,9 +39,9 @@ namespace Int {
   //   return Array(length).fill(n) as R[]
   // }
 
-  export const sEmptied = (length: Int): undefined[] => {
-    return Array(length).fill(undefined)
-  }
+  // export const sEmptied = (length: Int): undefined[] => {
+  //   return Array(length).fill(undefined)
+  // }
 }
 
 export default Int

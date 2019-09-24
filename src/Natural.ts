@@ -1,6 +1,5 @@
-import ApplicationError from '../ApplicationError/ApplicationError'
-import Range from '../Real/Range'
-import Real from '../Real/Real'
+import ApplicationError from 'ts-applicatin-error'
+import Real from './Real'
 import { Brand } from 'ts-brand'
 
 type Natural = Brand<number, 'Natural'>
@@ -17,25 +16,19 @@ namespace Natural {
     if (admits(n)) return n
     throw new ApplicationError(`Failed to create a Natural from ${ n }`)
   }
-}
-
-namespace Natural {
-
-  const overlapsWith = (range: Range<number, Natural>): boolean => {
-    const end = Range.endOf(range)
-    return (admits(end))
-  }
-
-  export const clampedWithin = (range: Range<number, Natural>, n: Natural): Natural | undefined => {
-    if (!overlapsWith(range)) return undefined
-    const clamped = Real.clampedWithin(range, n)
-    if (admits(clamped)) return clamped
-    return from(min)
-  }
 
   export const corrected = (n: number): Natural => {
     if (admits(n)) return n
     return min
+  }
+}
+
+namespace Natural {
+
+  export const clampedWithin = (bottom: Natural, top: Natural, r: Real): Natural => {
+    const clamped = Real.clampedWithin(bottom, top, r)
+    if (admits(clamped)) return clamped
+    throw new ApplicationError(`Failed to clamp r: ${ r }`)
   }
 }
 

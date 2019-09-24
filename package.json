@@ -4,5 +4,10 @@
   "main": "index.ts",
   "author": "to-gth <to.code01.g@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+
+  "dependencies": {
+    "ts-brand": "^0.0.2",
+    "ts-applicatin-error": "to-gth/ts-application-error.git"
+  }
 }

@@ -1,7 +1,6 @@
-import ApplicationError from '../ApplicationError/ApplicationError'
+import ApplicationError from 'ts-applicatin-error'
 import Int from './Int'
-import Natural from '../Natural/Natural'
-import NaturalIntRange from './NaturalIntRange'
+import Natural from './Natural'
 import { Brand } from 'ts-brand'
 
 type NaturalInt = Brand<Natural & Int, 'NaturalInt'>
@@ -22,30 +21,30 @@ namespace NaturalInt {
 
 namespace NaturalInt {
 
-  export const sFilled = <N extends NaturalInt, R = N>(n: N, length: NaturalInt): R[] => {
-    return Array(length).fill(n)
-  }
+  // export const sFilled = <N extends NaturalInt, R = N>(n: N, length: NaturalInt): R[] => {
+  //   return Array(length).fill(n)
+  // }
 
-  export const sFrom = ({ start, length }: NaturalIntRange<NaturalInt, NaturalInt>): NaturalInt[] => {
-    return sFilled(start, length).map((v, i) => from(v + i))
-  }
+  // export const sFrom = ({ start, length }: NaturalIntRange<NaturalInt, NaturalInt>): NaturalInt[] => {
+  //   return sFilled(start, length).map((v, i) => from(v + i))
+  // }
 }
 
 namespace NaturalInt {
 
-  export const clampedWithin =
-  (range: NaturalIntRange<NaturalInt, NaturalInt>, n: NaturalInt): NaturalInt | undefined => {
-    const clamped = Natural.clampedWithin(range, n)
-    if (clamped === undefined) return
-    return from(clamped)
-  }
+  // export const clampedWithin =
+  // (range: NaturalIntRange<NaturalInt, NaturalInt>, n: NaturalInt): NaturalInt | undefined => {
+  //   const clamped = Natural.clampedWithin(range, n)
+  //   if (clamped === undefined) return
+  //   return from(clamped)
+  // }
 
-  export const corrected = (n: number): NaturalInt => {
-    const natural = Natural.corrected(n)
-    const naturalInt = Int.corrected(natural)
-    if (admits(n)) return naturalInt as NaturalInt
-    throw new ApplicationError(`Failed to correct to NaturalInt from n: ${ n }`)
-  }
+  // export const corrected = (n: number): NaturalInt => {
+  //   const natural = Natural.corrected(n)
+  //   const naturalInt = Int.corrected(natural)
+  //   if (admits(n)) return naturalInt as NaturalInt
+  //   throw new ApplicationError(`Failed to correct to NaturalInt from n: ${ n }`)
+  // }
 }
 
 export default NaturalInt
