@@ -10,27 +10,14 @@ namespace Real {
 
 namespace Real {
 
-  export const isOrMore = (less: number, more: number): boolean => less <= more
-  export const isZeroOrMore = (more: number): boolean => isOrMore(0, more)
-}
+  export const isLessThan = (top: Real, r: Real): boolean => r < top
+  export const isMoreThan = (bottom: Real, r: Real): boolean => bottom < r
+  // export const isZeroOrMore = (r: Real): boolean => !isLessThan(0, r)
 
-namespace Real {
+  export const clampedWithin = (bottom: Real, top: Real, r: Real): Real => {
 
-  interface RealRange {
-    start: number,
-    length: number,
-  }
-
-  const endOf = ({ start, length }: RealRange ): Real => {
-    return start + length - 1
-  }
-
-  export const clampedWithin = (range: RealRange, r: Real): Real => {
-
-    const { start } = range
-    if (r <= start) return start
-    const end = endOf(range)
-    if (end <= r) return end
+    if (!isMoreThan(bottom, r)) return bottom
+    if (!isLessThan(top, r)) return top
     return r
   }
 }
