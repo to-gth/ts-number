@@ -1,6 +1,13 @@
-export * from './src/Real'
-export * from './src/Natural'
-export * from './src/Int'
-export * from './src/NaturalInt'
+import _Real from './src/Real'
+import _Natural from './src/Natural'
+import _Int from './src/Int'
+import _NaturalInt from './src/NaturalInt'
 
-// export default { Real, Natural, Int, NaturalInt }
+namespace TsNumber {
+  export type Real = _Real
+  export type Natural = _Natural
+  export type Int = _Int
+  export type NaturalInt= _NaturalInt
+}
+
+export default TsNumber
