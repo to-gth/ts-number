@@ -1,6 +1,6 @@
-import Real from './src/Real'
-import Natural from './src/Natural'
-import Int from './src/Int'
-import NaturalInt from './src/NaturalInt'
+export * from './src/Real'
+export * from './src/Natural'
+export * from './src/Int'
+export * from './src/NaturalInt'
 
-export default { Real, Natural, Int, NaturalInt }
+// export default { Real, Natural, Int, NaturalInt }
